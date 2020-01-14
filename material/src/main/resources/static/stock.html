@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		  <table>
+			  <center>
+			<tr style="">
+				<td>门店编码</td>
+				<td>物料编码</td>
+				<td>批次</td>
+				<td>库位</td>
+				<td>数量</td>
+			</tr>
+			  <tr th:each="stat:${MyStock}">
+				  <td th:text="${stat.werks}"></td>
+				  <td th:text="${stat.matnrCode}"></td>
+				  <td th:text="${stat.batchNum}"></td>
+				  <td th:text="${stat.location}"></td>
+				  <td th:text="${stat.sum1}"></td>
+			</tr>
+			  </center>
+		</table>
+	</body>
+</html>

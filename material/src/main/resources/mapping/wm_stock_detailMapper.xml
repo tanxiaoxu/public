@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.material.Dao.wm_stock_detailMapper" >
+  <resultMap id="BaseResultMap" type="com.example.material.bean.wm_stock_detail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="store" property="store" jdbcType="VARCHAR" />
+    <result column="position_code" property="positionCode" jdbcType="VARCHAR" />
+    <result column="material_code" property="materialCode" jdbcType="VARCHAR" />
+    <result column="material_name" property="materialName" jdbcType="VARCHAR" />
+    <result column="stock_num" property="stockNum" jdbcType="INTEGER" />
+    <result column="spec_unit" property="specUnit" jdbcType="VARCHAR" />
+    <result column="stock_spec_num" property="stockSpecNum" jdbcType="INTEGER" />
+    <result column="standard_unit" property="standardUnit" jdbcType="VARCHAR" />
+    <result column="batch_num" property="batchNum" jdbcType="VARCHAR" />
+    <result column="wran_time" property="wranTime" jdbcType="TIMESTAMP" />
+    <result column="is_lock" property="isLock" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="production_license" property="productionLicense" jdbcType="VARCHAR" />
+    <result column="production_registration" property="productionRegistration" jdbcType="VARCHAR" />
+    <result column="p_expiration_date" property="pExpirationDate" jdbcType="INTEGER" />
+    <result column="m_machine_licence" property="mMachineLicence" jdbcType="VARCHAR" />
+    <result column="m_machine_ebcr" property="mMachineEbcr" jdbcType="VARCHAR" />
+    <result column="me_name" property="meName" jdbcType="VARCHAR" />
+    <result column="me_dmp_license" property="meDmpLicense" jdbcType="VARCHAR" />
+    <result column="me_pr_certificate" property="mePrCertificate" jdbcType="VARCHAR" />
+    <result column="me_batch_number" property="meBatchNumber" jdbcType="VARCHAR" />
+    <result column="me_manufacture_time" property="meManufactureTime" jdbcType="DATE" />
+    <result column="shelf_life" property="shelfLife" jdbcType="INTEGER" />
+    <result column="se_mdp_license" property="seMdpLicense" jdbcType="VARCHAR" />
+    <result column="supplier_material_code" property="supplierMaterialCode" jdbcType="VARCHAR" />
+    <result column="supplier_material_name" property="supplierMaterialName" jdbcType="VARCHAR" />
+    <result column="st_condition" property="stCondition" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updater" property="updater" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, store, position_code, material_code, material_name, stock_num, spec_unit, stock_spec_num, 
+    standard_unit, batch_num, wran_time, is_lock, type, production_license, production_registration, 
+    p_expiration_date, m_machine_licence, m_machine_ebcr, me_name, me_dmp_license, me_pr_certificate, 
+    me_batch_number, me_manufacture_time, shelf_life, se_mdp_license, supplier_material_code, 
+    supplier_material_name, st_condition, creator, create_time, updater, update_time, 
+    status, delete_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from wm_stock_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from wm_stock_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.material.bean.wm_stock_detail" >
+    insert into wm_stock_detail (id, store, position_code, 
+      material_code, material_name, stock_num, 
+      spec_unit, stock_spec_num, standard_unit, 
+      batch_num, wran_time, is_lock, 
+      type, production_license, production_registration, 
+      p_expiration_date, m_machine_licence, m_machine_ebcr, 
+      me_name, me_dmp_license, me_pr_certificate, 
+      me_batch_number, me_manufacture_time, shelf_life, 
+      se_mdp_license, supplier_material_code, supplier_material_name, 
+      st_condition, creator, create_time, 
+      updater, update_time, status, 
+      delete_flag)
+    values (#{id,jdbcType=BIGINT}, #{store,jdbcType=VARCHAR}, #{positionCode,jdbcType=VARCHAR}, 
+      #{materialCode,jdbcType=VARCHAR}, #{materialName,jdbcType=VARCHAR}, #{stockNum,jdbcType=INTEGER}, 
+      #{specUnit,jdbcType=VARCHAR}, #{stockSpecNum,jdbcType=INTEGER}, #{standardUnit,jdbcType=VARCHAR}, 
+      #{batchNum,jdbcType=VARCHAR}, #{wranTime,jdbcType=TIMESTAMP}, #{isLock,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{productionLicense,jdbcType=VARCHAR}, #{productionRegistration,jdbcType=VARCHAR}, 
+      #{pExpirationDate,jdbcType=INTEGER}, #{mMachineLicence,jdbcType=VARCHAR}, #{mMachineEbcr,jdbcType=VARCHAR}, 
+      #{meName,jdbcType=VARCHAR}, #{meDmpLicense,jdbcType=VARCHAR}, #{mePrCertificate,jdbcType=VARCHAR}, 
+      #{meBatchNumber,jdbcType=VARCHAR}, #{meManufactureTime,jdbcType=DATE}, #{shelfLife,jdbcType=INTEGER}, 
+      #{seMdpLicense,jdbcType=VARCHAR}, #{supplierMaterialCode,jdbcType=VARCHAR}, #{supplierMaterialName,jdbcType=VARCHAR}, 
+      #{stCondition,jdbcType=VARCHAR}, #{creator,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updater,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{deleteFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.material.bean.wm_stock_detail" >
+    insert into wm_stock_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="store != null" >
+        store,
+      </if>
+      <if test="positionCode != null" >
+        position_code,
+      </if>
+      <if test="materialCode != null" >
+        material_code,
+      </if>
+      <if test="materialName != null" >
+        material_name,
+      </if>
+      <if test="stockNum != null" >
+        stock_num,
+      </if>
+      <if test="specUnit != null" >
+        spec_unit,
+      </if>
+      <if test="stockSpecNum != null" >
+        stock_spec_num,
+      </if>
+      <if test="standardUnit != null" >
+        standard_unit,
+      </if>
+      <if test="batchNum != null" >
+        batch_num,
+      </if>
+      <if test="wranTime != null" >
+        wran_time,
+      </if>
+      <if test="isLock != null" >
+        is_lock,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="productionLicense != null" >
+        production_license,
+      </if>
+      <if test="productionRegistration != null" >
+        production_registration,
+      </if>
+      <if test="pExpirationDate != null" >
+        p_expiration_date,
+      </if>
+      <if test="mMachineLicence != null" >
+        m_machine_licence,
+      </if>
+      <if test="mMachineEbcr != null" >
+        m_machine_ebcr,
+      </if>
+      <if test="meName != null" >
+        me_name,
+      </if>
+      <if test="meDmpLicense != null" >
+        me_dmp_license,
+      </if>
+      <if test="mePrCertificate != null" >
+        me_pr_certificate,
+      </if>
+      <if test="meBatchNumber != null" >
+        me_batch_number,
+      </if>
+      <if test="meManufactureTime != null" >
+        me_manufacture_time,
+      </if>
+      <if test="shelfLife != null" >
+        shelf_life,
+      </if>
+      <if test="seMdpLicense != null" >
+        se_mdp_license,
+      </if>
+      <if test="supplierMaterialCode != null" >
+        supplier_material_code,
+      </if>
+      <if test="supplierMaterialName != null" >
+        supplier_material_name,
+      </if>
+      <if test="stCondition != null" >
+        st_condition,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updater != null" >
+        updater,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="store != null" >
+        #{store,jdbcType=VARCHAR},
+      </if>
+      <if test="positionCode != null" >
+        #{positionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="materialCode != null" >
+        #{materialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="materialName != null" >
+        #{materialName,jdbcType=VARCHAR},
+      </if>
+      <if test="stockNum != null" >
+        #{stockNum,jdbcType=INTEGER},
+      </if>
+      <if test="specUnit != null" >
+        #{specUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="stockSpecNum != null" >
+        #{stockSpecNum,jdbcType=INTEGER},
+      </if>
+      <if test="standardUnit != null" >
+        #{standardUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNum != null" >
+        #{batchNum,jdbcType=VARCHAR},
+      </if>
+      <if test="wranTime != null" >
+        #{wranTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLock != null" >
+        #{isLock,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="productionLicense != null" >
+        #{productionLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="productionRegistration != null" >
+        #{productionRegistration,jdbcType=VARCHAR},
+      </if>
+      <if test="pExpirationDate != null" >
+        #{pExpirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="mMachineLicence != null" >
+        #{mMachineLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="mMachineEbcr != null" >
+        #{mMachineEbcr,jdbcType=VARCHAR},
+      </if>
+      <if test="meName != null" >
+        #{meName,jdbcType=VARCHAR},
+      </if>
+      <if test="meDmpLicense != null" >
+        #{meDmpLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="mePrCertificate != null" >
+        #{mePrCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="meBatchNumber != null" >
+        #{meBatchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="meManufactureTime != null" >
+        #{meManufactureTime,jdbcType=DATE},
+      </if>
+      <if test="shelfLife != null" >
+        #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="seMdpLicense != null" >
+        #{seMdpLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMaterialCode != null" >
+        #{supplierMaterialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMaterialName != null" >
+        #{supplierMaterialName,jdbcType=VARCHAR},
+      </if>
+      <if test="stCondition != null" >
+        #{stCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.material.bean.wm_stock_detail" >
+    update wm_stock_detail
+    <set >
+      <if test="store != null" >
+        store = #{store,jdbcType=VARCHAR},
+      </if>
+      <if test="positionCode != null" >
+        position_code = #{positionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="materialCode != null" >
+        material_code = #{materialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="materialName != null" >
+        material_name = #{materialName,jdbcType=VARCHAR},
+      </if>
+      <if test="stockNum != null" >
+        stock_num = #{stockNum,jdbcType=INTEGER},
+      </if>
+      <if test="specUnit != null" >
+        spec_unit = #{specUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="stockSpecNum != null" >
+        stock_spec_num = #{stockSpecNum,jdbcType=INTEGER},
+      </if>
+      <if test="standardUnit != null" >
+        standard_unit = #{standardUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNum != null" >
+        batch_num = #{batchNum,jdbcType=VARCHAR},
+      </if>
+      <if test="wranTime != null" >
+        wran_time = #{wranTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLock != null" >
+        is_lock = #{isLock,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="productionLicense != null" >
+        production_license = #{productionLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="productionRegistration != null" >
+        production_registration = #{productionRegistration,jdbcType=VARCHAR},
+      </if>
+      <if test="pExpirationDate != null" >
+        p_expiration_date = #{pExpirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="mMachineLicence != null" >
+        m_machine_licence = #{mMachineLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="mMachineEbcr != null" >
+        m_machine_ebcr = #{mMachineEbcr,jdbcType=VARCHAR},
+      </if>
+      <if test="meName != null" >
+        me_name = #{meName,jdbcType=VARCHAR},
+      </if>
+      <if test="meDmpLicense != null" >
+        me_dmp_license = #{meDmpLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="mePrCertificate != null" >
+        me_pr_certificate = #{mePrCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="meBatchNumber != null" >
+        me_batch_number = #{meBatchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="meManufactureTime != null" >
+        me_manufacture_time = #{meManufactureTime,jdbcType=DATE},
+      </if>
+      <if test="shelfLife != null" >
+        shelf_life = #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="seMdpLicense != null" >
+        se_mdp_license = #{seMdpLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMaterialCode != null" >
+        supplier_material_code = #{supplierMaterialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMaterialName != null" >
+        supplier_material_name = #{supplierMaterialName,jdbcType=VARCHAR},
+      </if>
+      <if test="stCondition != null" >
+        st_condition = #{stCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null" >
+        updater = #{updater,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.material.bean.wm_stock_detail" >
+    update wm_stock_detail
+    set store = #{store,jdbcType=VARCHAR},
+      position_code = #{positionCode,jdbcType=VARCHAR},
+      material_code = #{materialCode,jdbcType=VARCHAR},
+      material_name = #{materialName,jdbcType=VARCHAR},
+      stock_num = #{stockNum,jdbcType=INTEGER},
+      spec_unit = #{specUnit,jdbcType=VARCHAR},
+      stock_spec_num = #{stockSpecNum,jdbcType=INTEGER},
+      standard_unit = #{standardUnit,jdbcType=VARCHAR},
+      batch_num = #{batchNum,jdbcType=VARCHAR},
+      wran_time = #{wranTime,jdbcType=TIMESTAMP},
+      is_lock = #{isLock,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      production_license = #{productionLicense,jdbcType=VARCHAR},
+      production_registration = #{productionRegistration,jdbcType=VARCHAR},
+      p_expiration_date = #{pExpirationDate,jdbcType=INTEGER},
+      m_machine_licence = #{mMachineLicence,jdbcType=VARCHAR},
+      m_machine_ebcr = #{mMachineEbcr,jdbcType=VARCHAR},
+      me_name = #{meName,jdbcType=VARCHAR},
+      me_dmp_license = #{meDmpLicense,jdbcType=VARCHAR},
+      me_pr_certificate = #{mePrCertificate,jdbcType=VARCHAR},
+      me_batch_number = #{meBatchNumber,jdbcType=VARCHAR},
+      me_manufacture_time = #{meManufactureTime,jdbcType=DATE},
+      shelf_life = #{shelfLife,jdbcType=INTEGER},
+      se_mdp_license = #{seMdpLicense,jdbcType=VARCHAR},
+      supplier_material_code = #{supplierMaterialCode,jdbcType=VARCHAR},
+      supplier_material_name = #{supplierMaterialName,jdbcType=VARCHAR},
+      st_condition = #{stCondition,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectDetilByWerks" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from wm_stock_detail
+    where STOCK_NUM>0
+    <if test="werks != null and werks != ''">
+      and store = #{id,jdbcType=BIGINT}
+    </if>
+  </select>
+  <select id="selectAllDetil" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from wm_stock_detail
+    where STOCK_NUM>0 and store = #{id,jdbcType=BIGINT}
+  </select>
+</mapper>

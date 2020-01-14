@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Foundation 实例</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/foundation/5.5.3/js/foundation.min.js"></script>
+    <script src="https://cdn.staticfile.org/foundation/5.5.3/js/vendor/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="main" style="width:1200px;float:left; height: 100%;" >
+    <div  align="right" style="width:800px; height:100%; position:absolute; left: 10px;">
+
+        <table id="tb" border="0.1">
+            <center>
+                <h2>库存变动信息</h2>
+                <p>库存变动信息</p>
+                <tr style="">
+                    <td width="100px">单号</td>
+                    <td width="50px">门店</td>
+                    <td width="100px">物料编码</td>
+                    <td width="100px">批次</td>
+                    <td width="50px">库位</td>
+                    <td width="100px">变动数量</td>
+                    <td width="180px">修改时间</td>
+                </tr>
+                <tr th:each="stat:${logsList}">
+                    <td th:text="${stat.shipmentNo}"></td>
+                    <td th:text="${stat.werks}"></td>
+                    <td th:text="${stat.materialCode}"></td>
+                    <td th:text="${stat.batchNum}"></td>
+                    <td th:text="${stat.location}"></td>
+                    <td th:text="${stat.floatNum}"></td>
+                    <td th:text="${stat.createTime}"></td>
+                </tr>
+            </center>
+        </table></div>
+<!--    <div align="left" style=" width:600px; position:absolute; height:100%; left: 10px;">
+        <table>
+            <center>
+                <h2>储位变动信息</h2>
+                <p>储位变动信息</p>
+                <tr style="">
+                    <td width="100px">单号</td>
+                    <td width="50px">门店</td>
+                    <td width="100px">物料编码</td>
+                    <td width="100px">批次</td>
+                    <td width="50px">储位</td>
+                    <td width="20px">变动数量</td>
+                    <td width="180px">修改时间</td>
+                </tr>
+                <tr th:each="stat:${DlogsList}">
+                    <td th:text="${stat.shipmentNo}"></td>
+                    <td th:text="${stat.werks}"></td>
+                    <td th:text="${stat.materialCode}"></td>
+                    <td th:text="${stat.batchNum}"></td>
+                    <td th:text="${stat.position}"></td>
+                    <td th:text="${stat.floatNum}"></td>
+                    <td th:text="${stat.createTime}"></td>
+                </tr>
+            </center></table></div>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.material.Dao.wm_stock_logMapper" >
+  <resultMap id="BaseResultMap" type="com.example.material.bean.wm_stock_log" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="material_code" property="materialCode" jdbcType="VARCHAR" />
+    <result column="material_name" property="materialName" jdbcType="VARCHAR" />
+    <result column="werks" property="werks" jdbcType="VARCHAR" />
+    <result column="tar_werks" property="tarWerks" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="tar_location" property="tarLocation" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="tar_position" property="tarPosition" jdbcType="VARCHAR" />
+    <result column="batch_num" property="batchNum" jdbcType="VARCHAR" />
+    <result column="float_num" property="floatNum" jdbcType="INTEGER" />
+    <result column="shipment_no" property="shipmentNo" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updater" property="updater" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, material_code, material_name, werks, tar_werks, location, tar_location, position, 
+    tar_position, batch_num, float_num, shipment_no, creator, create_time, updater, update_time,
+    status, delete_flag
+  </sql>
+  <select id="selectLogByWerks" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List"/>
+    from wm_stock_log t
+    where delete_flag!=1
+    <if test="werks != null and werks != ''">
+      AND t.werks = #{werks}
+    </if>
+    <if test="material != null and material != ''">
+      AND t.material_code = #{material}
+    </if>
+    <if test="batchNum != null and batchNum != ''">
+      AND t.batch_num = #{batchNum}
+    </if>
+    <if test="shipmentNo != null and shipmentNo != ''">
+      AND t.shipment_no = #{shipmentNo}
+    </if>
+
+  </select>
+</mapper>

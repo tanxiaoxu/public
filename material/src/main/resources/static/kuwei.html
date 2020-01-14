@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Foundation 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/foundation/5.5.3/js/foundation.min.js"></script>
+  <script src="https://cdn.staticfile.org/foundation/5.5.3/js/vendor/modernizr.js"></script>
+  <script src="js/loading.js" type="text/javascript"></script>
+  <script>
+    function openURL() {
+      completeLoading();
+    }
+  </script>
+</head>
+<body style="padding:20px;">
+<h2>库存信息</h2>
+<p>库存信息</p>
+<table>
+  <thead>
+  <tr style=" atsc-nav-left: 120px">
+    <td width="100">门店编码</td>
+    <td width="100">物料编码</td>
+    <td width="100">批次</td>
+    <td width="100">库位</td>
+    <td width="100">数量</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="stat:${MyStock}">
+    <td th:text="${stat.werks}"></td>
+    <td th:text="${stat.matnrCode}"></td>
+    <td th:text="${stat.batchNum}"></td>
+    <td th:text="${stat.location}"></td>
+    <td th:text="${stat.sum1}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
